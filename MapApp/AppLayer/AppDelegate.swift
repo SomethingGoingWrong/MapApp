@@ -16,7 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
     configureAppDelegate()
-    presentMapViewController()
+    presentMapViewController(with: .Main)
     return true
   }
   
@@ -40,11 +40,11 @@ extension AppDelegate{
     gmsService.configure()
   }
   
-  func presentMapViewController(){
+  func presentMapViewController(with storyboard: ReferenceStoryboard){
     let scoreService = ServiceAssembler.ScoreService()
     let firebaseService = ServiceAssembler.FireService()
     let locationService = ServiceAssembler.LocationService()
-    let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MapViewController") as? MapViewController
+    let vc = UIStoryboard(name: storyboard.rawValue, bundle: nil).instantiateViewController(withIdentifier: "MapViewController") as? MapViewController
     vc?.presenter = MapPresenter(locationService: locationService, scoreService: scoreService, firebaseService: firebaseService)
     window.rootViewController = vc
     window.makeKeyAndVisible()
