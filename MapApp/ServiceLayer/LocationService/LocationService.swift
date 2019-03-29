@@ -16,23 +16,23 @@ protocol LocationService{
 }
 
 class LocationServiceImpl: NSObject, LocationService {
-  func getLocation(of city: String) -> Promise<CLLocation>{
+  func getLocation(of city: String) -> Promise<CLLocation> {
     return Promise<CLLocation> { seal -> Void in
       return CLGeocoder().geocodeAddressString(city, completionHandler: { (placemark, error) in
         if let placemark = placemark{
-          if let location = placemark.first?.location{
+          if let location = placemark.first?.location {
             seal.fulfill(location)
           }
-        }else if let error = error{
+        } else if let error = error {
           seal.reject(error)
         }
       })
     }
   }
   
-  func getDistanceBetween(marker: CLLocation, coordinate: CLLocation) -> Int{
+  func getDistanceBetween(marker: CLLocation, coordinate: CLLocation) -> Int {
     let distance = marker.distance(from: coordinate)
-    let convertedDistance = Int(distance).covertToKM()
+    let convertedDistance = Int(distance).convertToKM()
     return convertedDistance
   }
 }

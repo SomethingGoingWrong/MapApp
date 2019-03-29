@@ -9,7 +9,7 @@
 import Foundation
 
 extension Int {
-  func covertToKM() -> Int{
+  func convertToKM() -> Int {
     let concertedDistance = self / 1000
     return concertedDistance
   }

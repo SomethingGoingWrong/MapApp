@@ -9,10 +9,10 @@
 import Foundation
 import FirebaseFirestore
 
-extension DocumentSnapshot{
+extension DocumentSnapshot {
   func decode<T: Decodable>(as objectType: T.Type, includingId: Bool = true) throws -> T {
     var documentJson = data()
-    if includingId{
+    if includingId {
       documentJson!["id"] = documentID
     }
     

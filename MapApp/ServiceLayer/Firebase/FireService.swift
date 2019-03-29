@@ -18,13 +18,13 @@ protocol FireService {
   func saveGameTime(from collectionReference: FirebaseCollectionReference, with date: Date, withScore score: Int)
 }
 
-class FireServiceImpl : NSObject, FireService{
+class FireServiceImpl : NSObject, FireService {
   
   func configure(){
     FirebaseApp.configure()
   }
   
-  private func reference(to collectionReference: FirebaseCollectionReference) -> CollectionReference{
+  private func reference(to collectionReference: FirebaseCollectionReference) -> CollectionReference {
     return Firestore.firestore().collection(collectionReference.rawValue)
   }
   
@@ -33,21 +33,21 @@ class FireServiceImpl : NSObject, FireService{
     return Promise<[T]> { seal -> Void in
       return citiesReference.addSnapshotListener({ (snapshot, error) in
         guard let snapshot = snapshot else { return }
-        do{
+        do {
           var objects = [T]()
-          for document in snapshot.documents{
+          for document in snapshot.documents {
             let object = try document.decode(as: objectType.self)
             objects.append(object)
           }
           seal.fulfill(objects)
-        }catch{
+        } catch {
           seal.reject(error)
         }
       })
     }
   }
   
-  func saveGameTime(from collectionReference: FirebaseCollectionReference, with date: Date, withScore score: Int){
+  func saveGameTime(from collectionReference: FirebaseCollectionReference, with date: Date, withScore score: Int) {
     let resultsReference = reference(to: .results)
     let dateString = date.toString(dateFormat: "dd.MM.HH:mm")
     let parametrs : [String : Any] = [dateString : "\(score)"]

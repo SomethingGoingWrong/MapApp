@@ -42,15 +42,15 @@ class MapPresenter{
     print("Map presenter was deinited!")
   }
   
-  func attachView(_ view: MapProtocol){
+  func attachView(_ view: MapProtocol) {
     self.mapProtocol = view
   }
   
-  func deatachView(){
+  func deatachView() {
     self.mapProtocol = nil
   }
   
-  private func obtainCityLocation(with city: String) -> CLLocation?{
+  private func obtainCityLocation(with city: String) -> CLLocation? {
     locationService?.getLocation(of: city)
       .done({ (location) in
         return location
@@ -61,13 +61,13 @@ class MapPresenter{
     return nil
   }
   
-  private func saveTimeAndScoreToFirebase(){
+  private func saveTimeAndScoreToFirebase() {
     let score = self.scoreService.score
     let date = Date()
     self.firebaseService.saveGameTime(from: .results, with: date, withScore: score)
   }
   
-  private func restartGame(){
+  private func restartGame() {
     self.scoreService?.restart()
     self.obtainCitiesNamesWhenGameStarts()
     self.mapProtocol?.restart()

@@ -15,14 +15,15 @@ protocol ScoreService {
   func restart()
 }
 
-class ScoreServiceImpl: NSObject, ScoreService {  
+class ScoreServiceImpl: NSObject, ScoreService {
+  
   var kilometers = 1500
   var score = 0
   
   func update(with kilometers: Int) {
     if kilometers <= 50{
       score += 1
-    }else{
+    } else {
       self.kilometers -= kilometers
     }
   }

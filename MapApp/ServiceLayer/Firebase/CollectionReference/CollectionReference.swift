@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum FirebaseCollectionReference: String{
+enum FirebaseCollectionReference: String {
   case capitalCities
   case results
 }
