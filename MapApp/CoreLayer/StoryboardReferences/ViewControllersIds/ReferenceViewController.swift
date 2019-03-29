@@ -1,5 +1,5 @@
 //
-//  ReferenceStoryboard.swift
+//  ReferenceViewController.swift
 //  MapApp
 //
 //  Created by Назар on 3/29/19.
@@ -8,7 +8,6 @@
 
 import Foundation
 
-
-enum ReferenceStoryboard: String{
-  case Main
+enum ReferenceViewController: String{
+  case MapViewController
 }

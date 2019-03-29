@@ -22,6 +22,7 @@
 		BD1A41A2224D6C7200C13C69 /* MapPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1A41A1224D6C7200C13C69 /* MapPresenter.swift */; };
 		BD1A41A5224D6C8C00C13C69 /* AlertsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1A41A4224D6C8C00C13C69 /* AlertsManager.swift */; };
 		BD81082A224E1EAA009D1E6B /* ReferenceStoryboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD810829224E1EAA009D1E6B /* ReferenceStoryboard.swift */; };
+		BD81082E224E4DEA009D1E6B /* ReferenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD81082D224E4DEA009D1E6B /* ReferenceViewController.swift */; };
 		BD854DD6224D1B4200A8D387 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD854DD5224D1B4200A8D387 /* AppDelegate.swift */; };
 		BD854DD8224D1B4200A8D387 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD854DD7224D1B4200A8D387 /* MapViewController.swift */; };
 		BD854DDB224D1B4200A8D387 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD854DD9224D1B4200A8D387 /* Main.storyboard */; };
@@ -50,6 +51,7 @@
 		BD1A41A1224D6C7200C13C69 /* MapPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPresenter.swift; sourceTree = "<group>"; };
 		BD1A41A4224D6C8C00C13C69 /* AlertsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertsManager.swift; sourceTree = "<group>"; };
 		BD810829224E1EAA009D1E6B /* ReferenceStoryboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReferenceStoryboard.swift; sourceTree = "<group>"; };
+		BD81082D224E4DEA009D1E6B /* ReferenceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReferenceViewController.swift; sourceTree = "<group>"; };
 		BD854DD2224D1B4200A8D387 /* MapApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MapApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD854DD5224D1B4200A8D387 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BD854DD7224D1B4200A8D387 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -199,12 +201,29 @@
 			path = AlertsManager;
 			sourceTree = "<group>";
 		};
-		BD810828224E1E84009D1E6B /* ReferenceStroryboard */ = {
+		BD810828224E1E84009D1E6B /* StoryboardReferences */ = {
+			isa = PBXGroup;
+			children = (
+				BD81082C224E4DB0009D1E6B /* ViewControllersIds */,
+				BD81082B224E4DA7009D1E6B /* StoryboardNames */,
+			);
+			path = StoryboardReferences;
+			sourceTree = "<group>";
+		};
+		BD81082B224E4DA7009D1E6B /* StoryboardNames */ = {
 			isa = PBXGroup;
 			children = (
 				BD810829224E1EAA009D1E6B /* ReferenceStoryboard.swift */,
 			);
-			path = ReferenceStroryboard;
+			path = StoryboardNames;
+			sourceTree = "<group>";
+		};
+		BD81082C224E4DB0009D1E6B /* ViewControllersIds */ = {
+			isa = PBXGroup;
+			children = (
+				BD81082D224E4DEA009D1E6B /* ReferenceViewController.swift */,
+			);
+			path = ViewControllersIds;
 			sourceTree = "<group>";
 		};
 		BD854DC9224D1B4200A8D387 = {
@@ -253,7 +272,7 @@
 		BD854DEA224D237D00A8D387 /* CoreLayer */ = {
 			isa = PBXGroup;
 			children = (
-				BD810828224E1E84009D1E6B /* ReferenceStroryboard */,
+				BD810828224E1E84009D1E6B /* StoryboardReferences */,
 				BD1A41A3224D6C7800C13C69 /* AlertsManager */,
 				BD1A4171224D2EFF00C13C69 /* Extensions */,
 			);
@@ -514,6 +533,7 @@
 				BD1A418C224D4CA400C13C69 /* LocationService.swift in Sources */,
 				BD854DF9224D2A9100A8D387 /* CollectionReference.swift in Sources */,
 				BD854DF2224D245F00A8D387 /* FireService.swift in Sources */,
+				BD81082E224E4DEA009D1E6B /* ReferenceViewController.swift in Sources */,
 				BD1A417D224D3DE800C13C69 /* Date.swift in Sources */,
 				BD1A4196224D528E00C13C69 /* BaseView.swift in Sources */,
 				BD1A4177224D31A100C13C69 /* City.swift in Sources */,
