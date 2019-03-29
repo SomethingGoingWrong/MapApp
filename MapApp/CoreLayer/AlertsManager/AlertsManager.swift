@@ -39,6 +39,10 @@ struct Alert {
   static func showCorrectAnswerAlert(on vc: UIViewController){
     showBasicAlert(on: vc, with: "Great", message: "You got one point!")
   }
+  
+  static func showAddMarkerAlert(on vc: UIViewController){
+    showBasicAlert(on: vc, with: "Add marker", message: "You need to add marker first!")
+  }
 }
 
 

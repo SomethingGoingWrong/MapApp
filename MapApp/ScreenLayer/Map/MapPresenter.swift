@@ -11,7 +11,7 @@ import GoogleMaps
 import PromiseKit
 import CoreLocation
 
-protocol MapProtocol {
+protocol MapProtocol: class {
   func congigureWithCity(with city: String)
   func updateView(with city: String, with score: Int, with kilometers: Int)
   func restart()
@@ -28,7 +28,7 @@ class MapPresenter{
   var scoreService: ScoreService!
   var firebaseService: FireService!
   
-  var mapProtocol: MapProtocol?
+  weak var mapProtocol: MapProtocol!
   
   private var cities = [String]()
   
@@ -36,6 +36,10 @@ class MapPresenter{
     self.locationService = locationService
     self.scoreService = scoreService
     self.firebaseService = firebaseService
+  }
+  
+  deinit {
+    print("Map presenter was deinited!")
   }
   
   func attachView(_ view: MapProtocol){
@@ -84,18 +88,18 @@ class MapPresenter{
               //Do if cities left
               if distance < 50{ // Show correct or wrong answer allert
                 self.mapProtocol?.correctAnserAlert()
-              }else{
+              } else {
                 self.mapProtocol?.wrongAnswerAllert(with: distance)
               }
               let score = self.scoreService!.score
               let kilometers = self.scoreService!.kilometers
               self.mapProtocol?.updateView(with: city, with: score, with: kilometers)
-            }else{
+            } else {
               //Do if no more cities (Player WON)
               self.mapProtocol?.winGameAlert(with: self.scoreService!.score)
               self.restartGame()
             }
-          }else{
+          } else {
             //Do if no more kilometers (Player LOST)
             self.saveTimeAndScoreToFirebase()
             self.mapProtocol?.lostGameAlert()

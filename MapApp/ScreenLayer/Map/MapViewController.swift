@@ -13,7 +13,7 @@ import GoogleMaps
 class MapViewController: UIViewController {
   @IBOutlet weak var mapView: MapView!
   
-  var presenter : MapPresenter?
+  var presenter : MapPresenter!
   
   var marker : GMSMarker?
   
@@ -26,14 +26,19 @@ class MapViewController: UIViewController {
     configureButton()
   }
   
+  deinit {
+    print("Map view controller was deinited!")
+  }
+  
   func configureButton() {
-    self.mapView.buttonTapped = { [weak self] in
-      if let marker = self?.marker{
-        self?.presenter?.didPressButton(with: marker)
-      }else{
-        
+    self.mapView.buttonTapped = { [unowned self] in
+      if let marker = self.marker{
+        self.presenter?.didPressButton(with: marker)
+      } else {
+        Alert.showAddMarkerAlert(on: self)
       }
-      self?.mapView.mapView.clear()
+      self.mapView.mapView.clear()
+      self.marker = nil
     }
   }
 }
